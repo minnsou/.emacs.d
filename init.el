@@ -18,6 +18,7 @@
 (setq ac-use-fuzzy t)
 ;; C-n, C-pで補完候補検索
 (setq ac-use-menu-map t)
+(define-key ac-menu-map "RET" 'ac-complete)
 ;; 自動補完をidoにする
 (ido-mode t)
 (ido-everywhere 1)
