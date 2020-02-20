@@ -16,9 +16,13 @@
 >
 > ~/.emacs.d/init
 
-・普通の補完は[auto-complete](https://github.com/auto-complete/auto-complete)で、公式マニュアルが[こちら](https://github.com/auto-complete/auto-complete/blob/master/doc/manual.md)、解説記事は[こちら](http://keisanbutsuriya.hateblo.jp/entry/2015/02/08/175005)
+~~・普通の補完は[auto-complete](https://github.com/auto-complete/auto-complete)で、公式マニュアルが[こちら](https://github.com/auto-complete/auto-complete/blob/master/doc/manual.md)、解説記事は[こちら](http://keisanbutsuriya.hateblo.jp/entry/2015/02/08/175005)~~
 
-（この際、あいまい検索をするために[fuzzy](https://github.com/auto-complete/fuzzy-el)も入れる）
+~~（この際、あいまい検索をするために[fuzzy](https://github.com/auto-complete/fuzzy-el)も入れる）~~
+
+・auto-completeは最近ちゃんと更新されてないということで、開発が今も行われていてauto-completeに近いcompanyを自動補完にした
+
+公式リポジトリが[こちら](https://github.com/company-mode/company-mode)で、解説記事は[こちら](https://qiita.com/sune2/items/b73037f9e85962f5afb7)
 
 ・バッファ切り替えとファイル名補完は[ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html)を使用
 (この際、[ido-vertical-mode](https://github.com/creichert/ido-vertical-mode.el)も使用)

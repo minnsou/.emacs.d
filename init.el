@@ -11,14 +11,14 @@
 (add-to-list 'load-path "~/.emacs.d/elpa")
 
 ;; auto-complete（自動補完）
-(require 'auto-complete-config)
-(global-auto-complete-mode t)
+;;(require 'auto-complete-config)
+;;(global-auto-complete-mode t)
 ;; fuzzyを使った曖昧検索
-(require 'fuzzy)
-(setq ac-use-fuzzy t)
+;(require 'fuzzy)
+;(setq ac-use-fuzzy t)
 ;; C-n, C-pで補完候補検索
-(setq ac-use-menu-map t)
-(define-key ac-menu-map "RET" 'ac-complete)
+;;(setq ac-use-menu-map t)
+;;(define-key ac-menu-map "RET" 'ac-complete)
 ;; 自動補完をidoにする
 (ido-mode t)
 (ido-everywhere 1)
@@ -31,6 +31,16 @@
 ;; 自動補完をivyにする
 ;(ivy-mode 1)
 ;(counsel-mode 1)
+;; company-modeで自動補完
+(require 'company)
+(global-company-mode)
+(setq company-selection-wrap-around t)
+(setq company-minimum-prefix-length 2)
+(define-key company-active-map (kbd "M-n") nil)
+(define-key company-active-map (kbd "M-p") nil)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-h") nil)
 
 
 ;-----------------------------
@@ -134,7 +144,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (fuzzy ido-vertical-mode ido-completing-read+ ## helm counsel auto-complete auto-correct undo-tree)))
+    (company fuzzy ido-vertical-mode ido-completing-read+ ## helm counsel auto-complete auto-correct undo-tree)))
  '(send-mail-function (quote smtpmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
