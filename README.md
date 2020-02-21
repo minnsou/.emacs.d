@@ -4,6 +4,8 @@
 1. `M-x package-list-packages`から検索して選ぶ
 1. `M-x package-refresh-contents`で綺麗にしてから、`M-x package-install`でパッケージ名を入力する
 
+もし`Failed to verify signature archive-contents.sig:`というエラーが出た場合（参考リンクは[こちら](https://stackoverflow.com/questions/58202993/emacs-failed-to-verify-signature-archive-contents-sig)）は、[gnu-elpa-keyring-update](http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html)というパッケージを入れる（もしそれも入らないようであれば、`gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40`とコマンドラインで入れる）
+
 設定ファイルの基本は[ここ](https://wakaba-mafin.hatenablog.com/entry/setup-init-file-emacs)を参考
 
 >Emacsの基本設定を変更するには、Emacsの設定ファイルを使いやすいように編集すればOKです！そして、Emacsの設定ファイルは次の4つのうち、上から順に優先的に読み込まれます（ただし、読み込まれるのは1つだけ）
@@ -24,7 +26,7 @@
 
 公式リポジトリが[こちら](https://github.com/company-mode/company-mode)で、解説記事は[こちら](https://qiita.com/sune2/items/b73037f9e85962f5afb7)
 
-・バッファ切り替えとファイル名補完は[ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html)を使用
+・バッファ切り替えとファイル名補完はemacs標準添付の[ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html)を使用
 (この際、[ido-vertical-mode](https://github.com/creichert/ido-vertical-mode.el)も使用)
 
 ・ディレクトリ内の全文検索は`M-x grep-find`（もしくは`M-x find-grep`）を使って、そのまま検索ワードを打てば良い（宣言や参照移動もこれで十分っぽい、シェルで検索するときは`grep xxxx -rl ./`で良さそう）
