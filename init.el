@@ -144,8 +144,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company fuzzy ido-vertical-mode ido-completing-read+ ## helm counsel auto-complete auto-correct undo-tree)))
- '(send-mail-function (quote smtpmail-send-it)))
+    (fuzzy counsel ido-vertical-mode company auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
