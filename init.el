@@ -51,7 +51,7 @@
 ;; C-hだったhelpをC-c C-hにする
 (global-set-key "\C-c\C-h" 'help-command)
 ;; C-x oに加えてC-tも追加(window operation) 
-(global-set-key "\C-t" 'other-window)
+;(global-set-key "\C-t" 'other-window)
 ;; M-tにgoto-lineを割り当てる
 ;(global-set-key "\M-t" 'goto-line)
 
