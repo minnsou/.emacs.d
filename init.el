@@ -46,14 +46,13 @@
 ;-----------------------------
 ; keybind
 ;-----------------------------
-;; C-hをdelにする
-(global-set-key "\C-h" 'delete-backward-char)
+;; C-hをbackspaceにする
+;(global-set-key "\C-h" 'delete-backward-char) ;これはミニバッファだとだめ
+(define-key key-translation-map [?\C-h] [?\C-?])
 ;; C-hだったhelpをC-c C-hにする
 (global-set-key "\C-c\C-h" 'help-command)
 ;; C-x oに加えてC-tも追加(window operation) 
 ;(global-set-key "\C-t" 'other-window)
-;; M-tにgoto-lineを割り当てる
-;(global-set-key "\M-t" 'goto-line)
 
 
 ;-----------------------------

@@ -42,6 +42,8 @@
 - cloneしてすぐは`emacs -q`で初期設定のまま起動できる
 - 設定を試したい時は、行末で`C-c C-e`すれば即座に反映される
 - `Meta`は`C-[`を使えば、キーボードの割り当て変更をしなくても良い
+- Tabキーは`C-i`と同じ
+- Returnキーは`C-m`と同じ
 - 単純置換は`M-x replace-string`（ただし現在の位置から前方のみ）
 - 問い合わせ置換は`M-x query-replace`（デフォルトで`M-%`）
 - 任意の行に飛ぶには`M-x goto-line`（デフォルトで`M-g g`）
@@ -55,5 +57,8 @@ qiitaの補完まとめ
 うわっ...私のEmacs、使いにくすぎ？だったら...ｶｽﾀﾏｲｽﾞｼﾔｯｾｰ!!ﾀﾞｧﾀﾞｧｼｴﾘｲｪｯｽｯｼｪｰｼｮｰﾍｲﾍｲ!!!
 - https://sandai.hatenadiary.org/entry/20120304/p2
 
-Helmについての記事（TAB補完じゃないとのことでHelmは諦めた）
+Helmについての記事（Tab補完じゃないとのことでHelmは諦めた）
 - https://qiita.com/jabberwocky0139/items/86df1d3108e147c69e2c
+
+C-hにbackspaceを割り当てる話
+- http://malkalech.com/emacs_c-h_backspace
