@@ -10,16 +10,14 @@
 ;; ロードパスの追加
 (add-to-list 'load-path "~/.emacs.d/elpa")
 
-;; auto-complete（自動補完）
-;;(require 'auto-complete-config)
-;;(global-auto-complete-mode t)
-;; fuzzyを使った曖昧検索
-;(require 'fuzzy)
-;(setq ac-use-fuzzy t)
-;; C-n, C-pで補完候補検索
-;;(setq ac-use-menu-map t)
-;;(define-key ac-menu-map "RET" 'ac-complete)
-;; 自動補完をidoにする
+
+;-----------------------------
+; File/Buffer Complement
+;-----------------------------
+;; (1)ivyを使用
+;; (ivy-mode 1)
+;; (counsel-mode 1)
+;; (2)ido-modeを使用
 (ido-mode t)
 (ido-everywhere 1)
 ;; idoの中間/曖昧一致
@@ -28,19 +26,50 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode t)
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-;; 自動補完をivyにする
-;(ivy-mode 1)
-;(counsel-mode 1)
-;; company-modeで自動補完
+;; M-xなどでもidoを使用
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
+
+
+;-----------------------------
+; Code Complement
+;-----------------------------
+;; (1) auto-completeを使用
+;;(require 'auto-complete-config)
+;;(global-auto-complete-mode t)
+;;fuzzyを使った曖昧検索
+;; (require 'fuzzy)
+;; (setq ac-use-fuzzy t)
+;; C-n, C-pで補完候補検索
+;(setq ac-use-menu-map t)
+;(define-key ac-menu-map "RET" 'ac-complete)
+;; (2) company-modeを使用
 (require 'company)
 (global-company-mode)
 (setq company-selection-wrap-around t)
+;; 補完を表示する最小文字数
 (setq company-minimum-prefix-length 2)
+;; キーバインドの変更
 (define-key company-active-map (kbd "M-n") nil)
 (define-key company-active-map (kbd "M-p") nil)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-h") nil)
+;; カラーの変更
+;; (set-face-attribute 'company-tooltip nil
+;;                     :foreground "black" :background "lightgrey")
+;; (set-face-attribute 'company-tooltip-common nil
+;;                     :foreground "black" :background "lightgrey")
+;; (set-face-attribute 'company-tooltip-common-selection nil
+;;                     :foreground "white" :background "steelblue")
+;; (set-face-attribute 'company-tooltip-selection nil
+;;                     :foreground "black" :background "steelblue")
+;; (set-face-attribute 'company-preview-common nil
+;;                     :background nil :foreground "lightgrey" :underline t)
+;; (set-face-attribute 'company-scrollbar-fg nil
+;;                     :background "orange")
+;; (set-face-attribute 'company-scrollbar-bg nil
+;;                     :background "gray40")
 
 
 ;-----------------------------
@@ -61,7 +90,7 @@
 ;; 行番号の表示
 (global-linum-mode t)
 ;; 列番号の表示
-(column-number-mode t)
+;(column-number-mode t)
 ;; スペース、タブなどを可視化
 ;(global-whitespace-mode 1)
 ;; タイトルにフルパス表示
@@ -111,8 +140,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 ;; スペルチェック
-(setq-default flyspell-mode t)
-(setq ispell-dictionary "american")
+;; (setq-default flyspell-mode t)
+;; (setq ispell-dictionary "american")
 
 
 ;-----------------------------
@@ -142,8 +171,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (fuzzy counsel ido-vertical-mode company auto-complete))))
+   '(ido-completing-read+ fuzzy counsel ido-vertical-mode company auto-complete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
