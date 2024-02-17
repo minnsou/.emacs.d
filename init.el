@@ -1,7 +1,9 @@
-;-----------------------------
+;-------------------------------------
 ; packages
-;-----------------------------
+;-------------------------------------
 ;; package管理
+;; パッケージを使わないときは以下をコメントアウト
+;; ################### ここから #####################
 (package-initialize)
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -9,11 +11,12 @@
         ("org" . "http://orgmode.org/elpa/")))
 ;; ロードパスの追加
 (add-to-list 'load-path "~/.emacs.d/elpa")
+;; ################### ここまで #####################
 
 
-;-----------------------------
+;-------------------------------------
 ; File/Buffer Complement
-;-----------------------------
+;-------------------------------------
 ;; (1)ivyを使用
 ;; (ivy-mode 1)
 ;; (counsel-mode 1)
@@ -21,7 +24,9 @@
 (ido-mode t)
 (ido-everywhere 1)
 ;; idoの中間/曖昧一致
-(setq ido-enable-flex-matching t) 
+(setq ido-enable-flex-matching t)
+;; パッケージを使わないときは以下をコメントアウト
+;; ################### ここから #####################
 ;; idoの垂直表示
 (require 'ido-vertical-mode)
 (ido-vertical-mode t)
@@ -29,11 +34,12 @@
 ;; M-xなどでもidoを使用
 (require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
+;; ################### ここまで #####################
 
 
-;-----------------------------
+;-------------------------------------
 ; Code Complement
-;-----------------------------
+;-------------------------------------
 ;; (1) auto-completeを使用
 ;;(require 'auto-complete-config)
 ;;(global-auto-complete-mode t)
@@ -44,6 +50,8 @@
 ;(setq ac-use-menu-map t)
 ;(define-key ac-menu-map "RET" 'ac-complete)
 ;; (2) company-modeを使用
+;; オフライン時は以下をコメントアウト
+;; ################### ここから #####################
 (require 'company)
 (global-company-mode)
 (setq company-selection-wrap-around t)
@@ -55,6 +63,7 @@
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-h") nil)
+;; ################### ここまで #####################
 ;; カラーの変更
 ;; (set-face-attribute 'company-tooltip nil
 ;;                     :foreground "black" :background "lightgrey")
@@ -73,13 +82,12 @@
 ;; pythonコード補完としてcompany-jediの使用
 ;; (defun my/python-mode-hook ()
 ;;   (add-to-list 'company-backends 'company-jedi))
-
 ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
 
 
-;-----------------------------
+;-------------------------------------
 ; keybind
-;-----------------------------
+;-------------------------------------
 ;; C-hをbackspaceにする
 ;(global-set-key "\C-h" 'delete-backward-char) ;これはミニバッファだとだめ
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -89,11 +97,13 @@
 ;(global-set-key "\C-t" 'other-window)
 
 
-;-----------------------------
+;-------------------------------------
 ; frame
-;-----------------------------
-;; 行番号の表示
-(global-linum-mode t)
+;-------------------------------------
+;; 行番号の表示(emacsバージョンによって変える)
+(if (version<= "26.0.50" emacs-version)
+  (global-display-line-numbers-mode)
+    (global-linum-mode t))
 ;; 列番号の表示
 ;(column-number-mode t)
 ;; スペース、タブなどを可視化
@@ -130,9 +140,9 @@
 (auto-image-file-mode t)
 
 
-;------------------------------
+;--------------------------------------
 ; others
-;------------------------------
+;--------------------------------------
 ;; 1行ごとの改ページ
 (setq scroll-conservatively 1)
 ;; 括弧を自動で補完する
@@ -141,7 +151,7 @@
 (setq-default tab-width 4 indent-tabs-mode nil)
 ;; バックアップファイルとオートセーブファイルは~/.emacs.d/backupsへ
 (add-to-list 'backup-directory-alist
-             (cons "." "~/.emacs.d/backups/"))
+   (cons "." "~/.emacs.d/backups/"))
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 ;; スペルチェック
@@ -149,9 +159,9 @@
 ;; (setq ispell-dictionary "american")
 
 
-;-----------------------------
+;-------------------------------------
 ; for Mac OS
-;-----------------------------
+;-------------------------------------
 ;; utf-8を使う
 (prefer-coding-system 'utf-8)
 ;; キルリングに追加されたものをクリップボードに追加する
@@ -167,9 +177,11 @@
 ;(setq interprogram-paste-function 'copy-from-osx)
 
 
-;-----------------------------
+;-------------------------------------
 ; Custom set variables
-;-----------------------------
+;-------------------------------------
+;; パッケージを使わないときは以下をコメントアウト
+;; ################### ここから #####################
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -183,3 +195,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;; ################### ここまで #####################
